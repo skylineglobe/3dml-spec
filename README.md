@@ -16,3 +16,17 @@ version 1.0.1
 * 城市网格模型
 * 单个模型
 * BIM 和 CAD 模型
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/yongyu.jpg)
+
+# 3DML 文件格式
+
+3DML 文件包含网格数据、矢量图层和元数据。不同分辨率的瓦片数据是按照树状结构进行组织，树上的每个节点都包含更多的子节点。每个节点和其父节点表示相同的信息，但是子节点的分辨率更高。
+
+3DML 文件包含以下表格：
+
+* Version 表-保存 3DML 版本信息。
+* Projects 表-保存 3DML 数据集相关信息，包括：
+    *  bounding box
+    *  唯一 GUID
+    *  WKT 格式的数据集坐标系统

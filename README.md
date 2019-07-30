@@ -39,7 +39,7 @@ version 1.0.1
 
 ![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/geshizucheng2.jpg)
 
-子树以二进制数据形式保存了网格图层分层结构。每个子树记录保存了包括包络框、数据块的像素大小、参考和相对子节点的参考等信息。
+子树以二进制数据形式保存了网格图层分层结构。每个子树记录保存了包括BBox、数据块的像素大小、参考和相对子节点的参考等信息。
 
 子树的结构图：
 
@@ -63,3 +63,16 @@ version 1.0.1
 
 ![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/kefenlei.jpg)
 
+## 地面层
+
+3DML 文件格式可以单独读取网格图层的地面信息。这使得网格图层可以替换 3DML 范围内的影像和高程，这样让类似道路线等贴地表的对象可以直接贴在 3DML 地面层上，可能有一点随机的网格地面误差。
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/dimianceng.jpg)
+
+## 压缩存储优化
+
+3DML 格式是基于 SQLite 数据库和它的 SpatialLite 扩展，用于存储海量的三维空间数据集，可以用在移动端、网页端和桌面端。3DML 是一个单独的二进制文件，存储了所有关于3DML 数据集的信息，包括BBox、坐标系、网格模型块以及用于分类的面图层，这样的存储形式非常方便存储和管理。
+
+## 数据流优化
+
+网格数据存储在多级文件数据库中，这样在加载的时候可以先加载低精度级别的数据，当用户放大浏览到高精度的区域的时候再动态加载高精度的数据。从文件中读取数据时不需要一定是连续的数据，可以是不连续的数据。

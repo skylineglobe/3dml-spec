@@ -36,3 +36,30 @@ version 1.0.1
 关于表格及表格内容更详细的信息请查看表格章节。
 
 3DML 文件结构图:
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/geshizucheng2.jpg)
+
+子树以二进制数据形式保存了网格图层分层结构。每个子树记录保存了包括包络框、数据块的像素大小、参考和相对子节点的参考等信息。
+
+子树的结构图：
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/zishu.jpg)
+
+嵌套式子树的结构图：
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/qiantaozishu.jpg)
+
+# 3DML 优势
+
+## 可分类
+
+3DML 格式存储了网格分类信息，将网格转换成了空间数据。可分类的 3DML 支持读取属性信息和一系列矢量图层操作，包括：
+
+* 空间查询和属性查询
+* 快速读取数据
+* 可以使用属性数据进行网格分类渲染和作为提示信息
+* 根据属性值进行筛选显示对应的网格数据
+* 根据空间查询或属性查询的结果创建新的图层
+
+![image](https://github.com/skylineglobe/3dml-spec/blob/master/images/kefenlei.jpg)
+
